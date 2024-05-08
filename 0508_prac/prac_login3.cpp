@@ -1,8 +1,8 @@
-// ½Ç½À3. ·Î±×ÀÎ ¼º°ø ½Ã ÀüÈ­¹øÈ£ ÀúÀåÇÏ±â
-// 1. ·Î±×ÀÎ ¼º°ø½Ã, »ç¿ëÀÚ¿¡°Ô "ÀüÈ­¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä."¶ó´Â ¸Ş½ÃÁö¸¦ Ãâ·ÂÇÑ µÚ ÀüÈ­¹øÈ£ ÀÔ·Â ¹Ş±â
-// 2. »ç¿ëÀÚ·ÎºÎÅÍ ÀÔ·Â ¹ŞÀº ÀüÈ­¹øÈ£¸¦ ÀÌ¸§°ú ÇÔ²² member_tel.txt¿¡ ±â·Ï
-// 3. »õ·Î¿î »ç¶÷ÀÌ ·Î±×ÀÎ ¼º°ø½Ã member_tel.txt¿¡ ÀüÈ­¹øÈ£ Ãß°¡ÇÏ±â
-// 4. member_tel.txt¿¡ ÀÌ¹Ì Á¸ÀçÇÏ´Â »ç¶÷ÀÌ ·Î±×ÀÎ ¼º°ø ½Ã ÀüÈ­¹øÈ£ ¼öÁ¤ÇÏ±â
+// ì‹¤ìŠµ3. ë¡œê·¸ì¸ ì„±ê³µ ì‹œ ì „í™”ë²ˆí˜¸ ì €ì¥í•˜ê¸°
+// 1. ë¡œê·¸ì¸ ì„±ê³µì‹œ, ì‚¬ìš©ìì—ê²Œ "ì „í™”ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”."ë¼ëŠ” ë©”ì‹œì§€ë¥¼ ì¶œë ¥í•œ ë’¤ ì „í™”ë²ˆí˜¸ ì…ë ¥ ë°›ê¸°
+// 2. ì‚¬ìš©ìë¡œë¶€í„° ì…ë ¥ ë°›ì€ ì „í™”ë²ˆí˜¸ë¥¼ ì´ë¦„ê³¼ í•¨ê»˜ member_tel.txtì— ê¸°ë¡
+// 3. ìƒˆë¡œìš´ ì‚¬ëŒì´ ë¡œê·¸ì¸ ì„±ê³µì‹œ member_tel.txtì— ì „í™”ë²ˆí˜¸ ì¶”ê°€í•˜ê¸°
+// 4. member_tel.txtì— ì´ë¯¸ ì¡´ì¬í•˜ëŠ” ì‚¬ëŒì´ ë¡œê·¸ì¸ ì„±ê³µ ì‹œ ì „í™”ë²ˆí˜¸ ìˆ˜ì •í•˜ê¸°
 
 #include <iostream>
 #include <fstream>
@@ -18,15 +18,15 @@ int main()
 {
     string username, password;
 
-    // »ç¿ëÀÚ·ÎºÎÅÍ ÀÌ¸§ ÀÔ·Â ¹Ş±â
-    cout << "ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä: ";
+    // ì‚¬ìš©ìë¡œë¶€í„° ì´ë¦„ ì…ë ¥ ë°›ê¸°
+    cout << "ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”: ";
     cin >> username;
 
-    // »ç¿ëÀÚ·ÎºÎÅÍ ºñ¹Ğ¹øÈ£ ÀÔ·Â ¹Ş±â
-    cout << "ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ";
+    // ì‚¬ìš©ìë¡œë¶€í„° ë¹„ë°€ë²ˆí˜¸ ì…ë ¥ ë°›ê¸°
+    cout << "ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ";
     cin >> password;
 
-    // ·Î±×ÀÎ ½Ãµµ
+    // ë¡œê·¸ì¸ ì‹œë„
     login(username, password);
 
     return 0;
@@ -34,35 +34,35 @@ int main()
 
 void login(string username, string password)
 {
-    ifstream file("member.txt");  // member.txt ÆÄÀÏ¿¡¼­ È¸¿ø ¸íºÎ ÀĞ±â
+    ifstream file("member.txt");  // member.txt íŒŒì¼ì—ì„œ íšŒì› ëª…ë¶€ ì½ê¸°
 
     if (file.fail())
     {
-        cout << "ÆÄÀÏÀ» ¿­ ¼ö ¾ø½À´Ï´Ù." << endl;
+        cout << "íŒŒì¼ì„ ì—´ ìˆ˜ ì—†ìŠµë‹ˆë‹¤." << endl;
         return;
     }
 
     string line;
     bool logInOK = false;
 
-    while (getline(file, line))  // ÆÄÀÏ¿¡¼­ ÇÑ ÁÙ¾¿ ÀĞ¾î¿Í¼­ ÀÌ¸§°ú ºñ¹Ğ¹øÈ£ ºñ±³
+    while (getline(file, line))  // íŒŒì¼ì—ì„œ í•œ ì¤„ì”© ì½ì–´ì™€ì„œ ì´ë¦„ê³¼ ë¹„ë°€ë²ˆí˜¸ ë¹„êµ
     {
         stringstream ss(line);
         string name, pw;
 
-        if (ss >> name >> pw) // °ø¹éÀ¸·Î ÀÌ¸§°ú ºñ¹Ğ¹øÈ£ ºĞ¸®
+        if (ss >> name >> pw) // ê³µë°±ìœ¼ë¡œ ì´ë¦„ê³¼ ë¹„ë°€ë²ˆí˜¸ ë¶„ë¦¬
         {
             if (name == username && pw == password)
             {
-                cout << "·Î±×ÀÎ ¼º°ø!" << endl;
+                cout << "ë¡œê·¸ì¸ ì„±ê³µ!" << endl;
                 logInOK = true;
 
-                // ÀüÈ­¹øÈ£ ÀÔ·Â ¹Ş±â
+                // ì „í™”ë²ˆí˜¸ ì…ë ¥ ë°›ê¸°
                 string tel;
-                cout << "ÀüÈ­¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ";
+                cout << "ì „í™”ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ";
                 cin >> tel;
 
-                // ÀüÈ­¹øÈ£ ¾÷µ¥ÀÌÆ® ÇÔ¼ö È£Ãâ
+                // ì „í™”ë²ˆí˜¸ ì—…ë°ì´íŠ¸ í•¨ìˆ˜ í˜¸ì¶œ
                 updateTel(username, tel);
 
                 break;
@@ -72,7 +72,7 @@ void login(string username, string password)
 
     if (!logInOK)
     {
-        cout << "·Î±×ÀÎ ½ÇÆĞ!" << endl;
+        cout << "ë¡œê·¸ì¸ ì‹¤íŒ¨!" << endl;
     }
 
     file.close();
@@ -85,7 +85,7 @@ void updateTel(string username, string newTel)
 
     if (tel_file.fail())
     {
-        cout << "ÆÄÀÏÀ» ¿­ ¼ö ¾ø½À´Ï´Ù." << endl;
+        cout << "íŒŒì¼ì„ ì—´ ìˆ˜ ì—†ìŠµë‹ˆë‹¤." << endl;
         return;
     }
 
@@ -93,7 +93,7 @@ void updateTel(string username, string newTel)
     bool found = false;
     streampos foundPos;
 
-    // ÆÄÀÏ¿¡¼­ ÇÑ ÁÙ¾¿ ÀĞ¾î ÀÌ¸§ÀÌ °ãÄ¡´ÂÁö È®ÀÎÇÏ°í, ÀüÈ­¹øÈ£ ¼öÁ¤
+    // íŒŒì¼ì—ì„œ í•œ ì¤„ì”© ì½ì–´ ì´ë¦„ì´ ê²¹ì¹˜ëŠ”ì§€ í™•ì¸í•˜ê³ , ì „í™”ë²ˆí˜¸ ìˆ˜ì •
     while (getline(tel_file, line_tel))
     {
         stringstream ss_tel(line_tel);
@@ -103,23 +103,23 @@ void updateTel(string username, string newTel)
         {
             if (telName == username)
             {
-                // ÀÌ¸§ÀÌ °ãÄ¡´Â °æ¿ì ÀüÈ­¹øÈ£¸¸ ¼öÁ¤ÇÏ°í ÆÄÀÏ¿¡ ±â·Ï
-                ss_tel.seekg(0, ios::beg); // ÇöÀç À§Ä¡¸¦ ¸Ç ¾ÕÀ¸·Î ÀÌµ¿
-                tel_file.seekp(foundPos); // ÀÌÀü¿¡ ¹ß°ßÇÑ À§Ä¡·Î ÀÌµ¿
+                // ì´ë¦„ì´ ê²¹ì¹˜ëŠ” ê²½ìš° ê·¸ ìœ„ì¹˜ì—ì„œ ìˆ˜ì •í•˜ê³  íŒŒì¼ì— ê¸°ë¡
+                ss_tel.seekg(0, ios::beg); // í˜„ì¬ ìœ„ì¹˜ë¥¼ ë§¨ ì•ìœ¼ë¡œ ì´ë™
+                tel_file.seekp(foundPos); // ì´ì „ì— ë°œê²¬í•œ ìœ„ì¹˜ë¡œ ì´ë™
                 tel_file << username << " " << newTel << endl;
                 found = true;
                 break;
             }
         }
 
-        foundPos = tel_file.tellg(); // ÇöÀç ÆÄÀÏ ÀĞ±â À§Ä¡ ±â¾ï
+        foundPos = tel_file.tellg(); // í˜„ì¬ íŒŒì¼ ì½ê¸° ìœ„ì¹˜ ê¸°ì–µ
     }
 
-    // ¸¸¾à ÀÌ¸§ÀÌ Á¸ÀçÇÏÁö ¾Ê¾Ò´Ù¸é »õ·Î¿î ÀÌ¸§°ú ÀüÈ­¹øÈ£¸¦ Ãß°¡
+    // ë§Œì•½ ì´ë¦„ì´ ì¡´ì¬í•˜ì§€ ì•Šì•˜ë‹¤ë©´ ìƒˆë¡œìš´ ì´ë¦„ê³¼ ì „í™”ë²ˆí˜¸ë¥¼ ì¶”ê°€
     if (!found) 
     {
-        tel_file.clear(); // EOF »óÅÂ ÃÊ±âÈ­
-        tel_file.seekp(0, ios::end); // ÆÄÀÏ ³¡À¸·Î ÀÌµ¿
+        tel_file.clear(); // EOF ìƒíƒœ ì´ˆê¸°í™”
+        tel_file.seekp(0, ios::end); // íŒŒì¼ ëìœ¼ë¡œ ì´ë™
         tel_file << username << " " << newTel << endl;
     }
 
